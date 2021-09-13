@@ -8,7 +8,8 @@ const logger = require('koa-logger')
 // const index = require('./routes/index')
 const index = require('./controller/index')
 
-// require('./scheduler')
+//  定时器
+require('./scheduler')
 
 // error handler
 onerror(app)

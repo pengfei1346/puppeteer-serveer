@@ -26,7 +26,7 @@ class PuppeteerHelper {
         const randomId = Number(Math.random().toString().substr(3, 6) + Date.now()).toString(36)
 
         // const path = `static/upload/${date.getFullYear()}/${formatNumber(date.getMonth() + 1)}`
-        const path = `public/${date.getFullYear()}/${formatNumber(date.getMonth() + 1)}`
+        const path = `public/images/${date.getFullYear()}/${formatNumber(date.getMonth() + 1)}`
         mkdirSync(path)
 
         // 通过创建浏览器标签来打开
