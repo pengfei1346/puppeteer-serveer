@@ -37,6 +37,7 @@ class SnapshotController {
             height = 667,
             quality = 80,
             ratio = 2,
+            fileType = 'path',
             imageType = 'jpeg',
         } = ctx.request.body;
 
@@ -53,18 +54,23 @@ class SnapshotController {
                 quality,
                 ratio,
                 imageType,
-                fileType: 'path'
+                fileType
             });
         } catch (err) {
             // logger
             console.log(err)
         }
 
-        console.log(imgBuffer);
-        let imgUrl = await this.uploadImage(imgBuffer)
+        if(fileType === 'path') {
+            let imgUrl = await this.uploadImage(imgBuffer)
 
-        return {
-            img: imgUrl || ''
+            return {
+                img: imgUrl || ''
+            }
+        }else {
+            return {
+                img: imgBuffer || ''
+            }
         }
     }
 

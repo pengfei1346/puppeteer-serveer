@@ -50,6 +50,12 @@ class PuppeteerHelper {
         // 根据 type 返回不同的类型 一种图片路径、一种 base64
         let fileName = `IMG_${randomId}`
 
+        filePath = await page.screenshot({
+            fullPage: false,
+            omitBackground: true,
+            encoding: 'base64'
+        })
+
         if (fileType === 'path') {
             filePath = `${path}/${fileName}.${imageType}`
             await page.screenshot({
@@ -63,7 +69,9 @@ class PuppeteerHelper {
                 omitBackground: true,
                 encoding: 'base64'
             })
+            filePath = `data:image/png;base64,${filePath}`
         }
+
         browser.close()
         return filePath
     }
