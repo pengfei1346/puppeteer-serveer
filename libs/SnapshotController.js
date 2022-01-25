@@ -79,7 +79,7 @@ class SnapshotController {
      */
     async uploadImage(imgBuffer) {
         const str = 'public/'
-        return `http://192.168.6.117:3000/${imgBuffer.slice(str.length)}`
+        return `http://112.124.56.117:3080/${imgBuffer.slice(str.length)}`
     }
 }
 
