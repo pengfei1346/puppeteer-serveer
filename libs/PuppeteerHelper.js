@@ -21,6 +21,7 @@ class PuppeteerHelper {
         } = params
         const browser = await puppeteer.launch({
             headless: true, // 默认为 true 不打开浏览器，设置 false 打开
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
         })
         const date = new Date()
         const randomId = Number(Math.random().toString().substr(3, 6) + Date.now()).toString(36)
